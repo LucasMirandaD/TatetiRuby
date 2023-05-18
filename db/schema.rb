@@ -26,7 +26,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_22_162722) do
   create_table "players", charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
     t.string "lastname"
-    t.integer "password"
+    t.string "password"
     t.string "nickname"
     t.string "token"
     t.datetime "created_at", null: false

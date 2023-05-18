@@ -3,7 +3,7 @@ class CreatePlayers < ActiveRecord::Migration[7.0]
     create_table :players do |t|
       t.string :name
       t.string :lastname
-      t.integer :password
+      t.string :password
       t.string :nickname, unique: true
       t.string :token, optional: true
       t.timestamps

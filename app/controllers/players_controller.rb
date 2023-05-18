@@ -21,7 +21,7 @@ class PlayersController < ApplicationController
         @player = Player.find_by(nickname: params[:nickname], password: params[:password])
         
         if @player.present?
-            render status:200 ,json: {players: @player}
+            render status:200 ,json: {player: @player}
         else
             render status:404 , json: {message: "no se encuentra el jugador #{params[:nickname]}"}
         end
@@ -32,7 +32,7 @@ class PlayersController < ApplicationController
         @player = Player.create(player_params)
 
         if @player.persisted?
-            render status:200 ,json: {players: @player}
+            render status:200 ,json: {player: @player}
         else 
             render status:400, json: {message: @player.errors.details}
         end
@@ -43,7 +43,7 @@ class PlayersController < ApplicationController
 
         if player.present?
             if player.update(player_params)
-                render status:200 ,json: {players: player}
+                render status:200 ,json: {player: player}
             else 
                 render status:400, json: {message: player.errors.details}
             end
