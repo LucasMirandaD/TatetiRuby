@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :players , param: :nickname , except:[:update, :destroy, :new, :edit] do
     member do
-      get :login # /players/:nickname/login
+      post :login # /players/:nickname/login
     end
   end
     
@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get"tateti/players", to: "players#index"
   get"tateti/players/:id", to: "players#show"
   post"tateti/players", to: "players#create"
+  post "players/:nickname/login" to: players#login
   patch"tateti/players/:id", to: "players#update"
   delete"tateti/players/:id", to: "players#destroy"
   #no voy a definir el put

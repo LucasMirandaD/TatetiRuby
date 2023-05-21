@@ -1,6 +1,6 @@
 class PlayersController < ApplicationController
     
-    before_action :check_token, only: [ :show]
+    before_action :check_token ,except: [:login]#, only: [ :show,]
 
     def index
         @players = Player.all
